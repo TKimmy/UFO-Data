@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Country');
+          data.addColumn('number', 'Reports');
+          data.addRows([
+            ['Light', 22760],
+            ['Circle', 11499],
+            ['Triangle', 10488],
+            ['Fireball', 8653],
+            ['Unknown', 7879]
+          ]);
+
+         var options = {
+           title: 'Common UFO Shapes',
+           width: 500,
+           height: 300,
+           legend: 'none',
+           bar: {groupWidth: '95%'},
+           vAxis: { gridlines: { count: 4 } }
+         };
+
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };
+    </script>
+  </head>
+  <body>
+    <select id="format-select">
+      <option value="">none</option>
+      <option value="scientific">scientific</option>
+      <option value="short">short</option>
+      <option value="long">long</option>
+    </select>
+    <div id="number_format_chart">
+  </body>
+</html>

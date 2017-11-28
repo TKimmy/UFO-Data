@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>UFO Data</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+<!--My Style CSS-->
+<link rel="stylesheet" type="text/css" href="mystyle.css" />
+
+    <!--piegraph-->
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Austin', .5],
+          ['Houston', .75],
+          ['Dallas', .125],
+         
+        ]);
+
+        // Set chart options
+        var options = {'title':'3 Largest Texan Cities With UFO Sightings in 2016 ',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!--bargraph-->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Country');
+          data.addColumn('number', 'Reports');
+          data.addRows([
+            ['Light', 22760],
+            ['Circle', 11499],
+            ['Triangle', 10488],
+            ['Fireball', 8653],
+            ['Unknown', 7879]
+          ]);
+
+         var options = {
+           title: 'Common UFO Shapes',
+           width: 500,
+           height: 300,
+           legend: 'none',
+           bar: {groupWidth: '95%'},
+           vAxis: { gridlines: { count: 4 } }
+         };
+
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };
+    </script>
+
+  </head>
+  <body>
+  <div class="container">
+<div class="card bg-dark text-white">
+  <img class="card-img" src="earth.jpg" alt="Card image">
+  <div class="card-img-overlay">
+    <h1 class="card-title">UFO Data</h1>
+    <p class="card-text">The unofficial reports for UFO sightings.<i>"Astronomy compels the soul to look upward, and leads us from this world to another."</i> </p>
+    <p class="card-text">— Plato, The Republic, 342 BCE.</p>
+  </div>
+</div>
+</div>
+<!--Navigation-->
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="News.html">News</a>
+      <a class="nav-item nav-link" href="Stats.html">Stats</a>
+    </div>
+  </div>
+</nav>
+</div>
+<br> 
+<div class="container">
+<div class="row">
+  <div class="col-6"><div id="chart_div"></div></div>
+  <div class="col-6"> <select id="format-select">
+      <option value="">none</option>
+      <option value="scientific">scientific</option>
+      <option value="short">short</option>
+      <option value="long">long</option>
+    </select>
+    <div id="number_format_chart"></div>
+</div>
+</div>
+
+
+    <header>
+  
+        
+
+
+
+  </body>
+</html>
+
+
